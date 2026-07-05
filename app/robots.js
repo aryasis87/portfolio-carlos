@@ -1,7 +1,7 @@
 export default function robots() {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://portfolio-carlos.vercel.app/sitemap.xml",
-    host: "https://portfolio-carlos.vercel.app",
+    sitemap: "https://carlos.pintuweb.com/sitemap.xml",
+    host: "https://carlos.pintuweb.com",
   };
 }

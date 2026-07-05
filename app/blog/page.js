@@ -14,7 +14,7 @@ export default function BlogPage() {
         <div className="mx-auto grid max-w-5xl gap-6">
           {posts.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 0.08}>
-              <a href="#" className="group flex flex-col justify-between gap-4 rounded-2xl border border-gray-800 bg-gray-800/40 p-6 transition hover:border-yellow-400/40 hover:bg-gray-800 sm:flex-row sm:items-center md:p-8">
+              <a href="/contact" className="group flex flex-col justify-between gap-4 rounded-2xl border border-gray-800 bg-gray-800/40 p-6 transition hover:border-yellow-400/40 hover:bg-gray-800 sm:flex-row sm:items-center md:p-8">
                 <div className="max-w-2xl">
                   <div className="mb-2 flex items-center gap-3 text-xs text-gray-500">
                     <span className="rounded-full bg-gray-900 px-2.5 py-1 font-semibold text-yellow-400">{p.category}</span>

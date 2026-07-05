@@ -47,8 +47,8 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-gray-800 pt-6 text-sm text-gray-500 md:flex-row">
           <p>&copy; {new Date().getFullYear()} Carlos Mendoza. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="transition hover:text-yellow-400">Privacy</Link>
-            <Link href="#" className="transition hover:text-yellow-400">Terms</Link>
+            <Link href="/privacy" className="transition hover:text-yellow-400">Privacy</Link>
+            <Link href="/terms" className="transition hover:text-yellow-400">Terms</Link>
           </div>
         </div>
       </div>

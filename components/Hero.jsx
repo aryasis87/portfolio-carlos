@@ -15,9 +15,11 @@ export default function Hero() {
 
   return (
     <section
-      className="bg-gradient-to-b from-gray-900 to-gray-800 text-white px-6 md:px-20 pt-16 pb-24 grid md:grid-cols-2 gap-16 items-center min-h-screen"
+      className="relative isolate flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 px-6 text-white md:px-12"
       data-aos="fade-up"
     >
+      <div className="dot-grid pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" />
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 py-20 md:grid-cols-2 md:gap-16">
       {/* Kolom Kiri - Teks */}
       <div className="space-y-6 max-w-xl" data-aos="fade-right">
         <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
@@ -65,6 +67,7 @@ export default function Hero() {
           className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           priority
         />
+      </div>
       </div>
     </section>
   );

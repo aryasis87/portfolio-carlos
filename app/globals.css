@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  --font-display: var(--font-sora), system-ui, sans-serif;
+}
+
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
 :root {
 }
 
@@ -22,3 +35,17 @@ body {
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
 }
+
+/* ---- Light theme (base is dark; flip neutrals, yellow accent kept) ---- */
+.light { color-scheme: light; }
+.light .bg-gray-900 { background-color: #ffffff !important; }
+.light .bg-gray-900\/80 { background-color: rgba(255,255,255,0.85) !important; }
+.light .bg-gray-800 { background-color: #f3f4f6 !important; }
+.light .bg-gradient-to-b { background-image: none !important; background-color: #ffffff !important; }
+.light .text-white { color: #111827 !important; }
+.light .text-gray-300 { color: #374151 !important; }
+.light .text-gray-400 { color: #4b5563 !important; }
+.light .text-gray-500 { color: #6b7280 !important; }
+.light .border-gray-800 { border-color: #e5e7eb !important; }
+.light .border-gray-700 { border-color: #d1d5db !important; }
+.light .dot-grid { background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px) !important; }

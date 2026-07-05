@@ -1,52 +1,57 @@
 // components/Footer.jsx
 import Link from 'next/link';
-import { Instagram, Linkedin, Github } from 'lucide-react';
+import { profile, nav } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white px-6 md:px-12 py-12 border-t border-gray-800">
-
-      {/* Konten Utama */}
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 mb-10">
-        
-        {/* Kolom Kiri - Nama & Email */}
-        <div>
-          <h2 className="text-3xl font-bold">Carlos Mendoza<span className="text-yellow-400">.</span></h2>
-          <p className="text-gray-400 mt-4 max-w-md">
-            I'm open for freelance opportunities or collaboration.
-          </p>
-          <Link href="mailto:hi@carlos.com" className="inline-flex items-center gap-2 text-yellow-400 font-semibold hover:underline mt-4">
-            hi@carlos.com ↗
+    <footer className="border-t border-gray-800 bg-gray-900 px-6 py-16 text-white md:px-12">
+      <div className="mx-auto max-w-6xl">
+        {/* CTA */}
+        <div className="mb-14 flex flex-col items-start justify-between gap-6 border-b border-gray-800 pb-14 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm uppercase tracking-wide text-gray-400">— Let&apos;s talk</p>
+            <h2 className="mt-2 max-w-xl text-3xl font-bold leading-tight md:text-4xl">
+              Have a project in mind? Let&apos;s build it together.
+            </h2>
+          </div>
+          <Link href="/contact" className="shrink-0 rounded-full bg-yellow-400 px-7 py-3.5 font-semibold text-gray-900 transition hover:bg-yellow-300">
+            Start a project ↗
           </Link>
         </div>
 
-        {/* Kolom Kanan - Sosial Media */}
-        <div className="flex flex-col space-y-4">
-          <h3 className="text-sm uppercase tracking-wide text-gray-400">Find me on</h3>
-          <div className="flex space-x-4">
-            <a href="https://instagram.com " target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors">
-              <Instagram size={20} />
-            </a>
-            <a href="https://linkedin.com " target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors">
-              <Linkedin size={20} />
-            </a>
-            <a href="https://github.com " target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors">
-              <Github size={20} />
-            </a>
+        {/* Columns */}
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <h3 className="text-2xl font-bold">Carlos Mendoza<span className="text-yellow-400">.</span></h3>
+            <p className="mt-3 max-w-xs text-sm text-gray-400">{profile.role} based in {profile.location}.</p>
+            <a href={`mailto:${profile.email}`} className="mt-4 inline-block font-semibold text-yellow-400 hover:underline">{profile.email} ↗</a>
+          </div>
+          <div>
+            <p className="text-sm uppercase tracking-wide text-gray-500">Navigation</p>
+            <ul className="mt-3 space-y-2">
+              {nav.map((l) => (
+                <li key={l.href}><Link href={l.href} className="text-sm text-gray-400 transition hover:text-yellow-400">{l.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-sm uppercase tracking-wide text-gray-500">Find me on</p>
+            <ul className="mt-3 space-y-2">
+              {profile.socials.map((s) => (
+                <li key={s.label}><a href={s.href} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 transition hover:text-yellow-400">{s.label}</a></li>
+              ))}
+            </ul>
           </div>
         </div>
 
-      </div>
-
-      {/* Bawah Footer */}
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-        <p>&copy; 2025 Sanzystore. All rights reserved.</p>
-        <div className="flex space-x-6 mt-4 md:mt-0">
-          <Link href="/privacy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-gray-800 pt-6 text-sm text-gray-500 md:flex-row">
+          <p>&copy; {new Date().getFullYear()} Carlos Mendoza. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="transition hover:text-yellow-400">Privacy</Link>
+            <Link href="#" className="transition hover:text-yellow-400">Terms</Link>
+          </div>
         </div>
       </div>
-
     </footer>
   );
 }

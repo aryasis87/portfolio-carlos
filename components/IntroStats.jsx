@@ -18,7 +18,7 @@ export default function IntroStats() {
 
   return (
     <section
-      className="bg-gray-900 text-white px-6 md:px-12 py-16 border-t border-gray-800"
+      className="bg-gray-900 text-white px-6 md:px-12 py-20 md:py-24 border-t border-gray-800"
       data-aos="fade-up"
     >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">

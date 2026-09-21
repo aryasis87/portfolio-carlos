@@ -10,10 +10,10 @@ import ThemeToggle from '@/components/ThemeToggle';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const sora = Sora({ subsets: ['latin'], variable: '--font-sora', weight: ['600', '700', '800'], display: 'swap' });
 
-const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Carlos Mendoza","jobTitle":"Product Designer & Developer","url":"https://carlos.pintuweb.com","inLanguage":"en"}};
+const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Carlos Mendoza","jobTitle":"Product Designer & Developer","url":"https://portfolio-carlos-eosin.vercel.app","inLanguage":"en"}};
 
 export const metadata = {
-  metadataBase: new URL("https://carlos.pintuweb.com"),
+  metadataBase: new URL("https://portfolio-carlos-eosin.vercel.app"),
   title: "Carlos Mendoza — Product Designer & Developer",
   description: "Portfolio of Carlos Mendoza: product designer & full-stack developer based in California, building thoughtful digital products.",
   applicationName: "Carlos Mendoza",
@@ -21,11 +21,11 @@ export const metadata = {
   authors: [{ name: "Carlos Mendoza" }],
   creator: "Carlos Mendoza",
   publisher: "Carlos Mendoza",
-  alternates: { canonical: "https://carlos.pintuweb.com" },
+  alternates: { canonical: "https://portfolio-carlos-eosin.vercel.app" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://carlos.pintuweb.com",
+    url: "https://portfolio-carlos-eosin.vercel.app",
     siteName: "Carlos Mendoza",
     title: "Carlos Mendoza — Product Designer & Developer",
     description: "Portfolio of Carlos Mendoza: product designer & full-stack developer based in California, building thoughtful digital products.",

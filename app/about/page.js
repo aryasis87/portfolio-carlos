@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import { profile, skills, experience, education } from '@/lib/data';
 
-export const metadata = { title: 'About — Carlos Mendoza' };
+export const metadata = { title: 'About' };
 
 export default function AboutPage() {
   return (
@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
           <Reveal>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-              <Image src={profile.about} alt={profile.name} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
+              <Image src={profile.about} alt="" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -26,8 +26,8 @@ export default function AboutPage() {
             <div className="mt-5 space-y-4 leading-relaxed text-gray-400">
               {profile.bio.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-            <Link href={profile.resumeUrl} className="mt-7 inline-flex items-center gap-2 rounded-full bg-yellow-400 px-6 py-3 font-semibold text-gray-900 transition hover:bg-yellow-300">
-              <Download size={16} /> Download CV
+            <Link href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-yellow-400 px-6 py-3 font-semibold text-gray-900 transition hover:bg-yellow-300">
+              Get in touch <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </Reveal>
         </div>
@@ -58,11 +58,11 @@ export default function AboutPage() {
           <Reveal><h2 className="text-3xl font-bold tracking-tight md:text-4xl">Experience.</h2></Reveal>
           <div className="mt-10 space-y-px">
             {experience.map((e, i) => (
-              <Reveal key={i} delay={i * 0.08}>
+              <Reveal key={e.period} delay={i * 0.08}>
                 <div className="grid gap-2 border-t border-gray-800 py-7 md:grid-cols-[180px_1fr]">
                   <span className="font-mono text-sm text-yellow-400">{e.period}</span>
                   <div>
-                    <h3 className="text-xl font-semibold">{e.role} <span className="text-gray-500">· {e.company}</span></h3>
+                    <h3 className="text-xl font-semibold">{e.role} <span className="text-gray-400">· {e.company}</span></h3>
                     <p className="mt-2 max-w-2xl text-gray-400">{e.desc}</p>
                   </div>
                 </div>

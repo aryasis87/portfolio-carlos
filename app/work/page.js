@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '@/lib/data';
 
-const CATS = ['All', 'Branding', 'Product', 'Development'];
+const CATS = ['All', ...new Set(projects.map((p) => p.category))];
 
 export default function WorkPage() {
   const [cat, setCat] = useState('All');
@@ -16,7 +16,7 @@ export default function WorkPage() {
         <div className="mx-auto max-w-5xl">
           <p className="mb-2 text-sm uppercase tracking-wide text-gray-400">— Work</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Selected projects.</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-gray-400">A selection of work across branding, product design, and development.</p>
+          <p className="mt-4 max-w-2xl leading-relaxed text-gray-400">Six live products. Each card opens a case study with the rule behind it and a link to the live site.</p>
 
           {/* Filter */}
           <div className="mt-8 flex flex-wrap gap-2">
@@ -24,6 +24,7 @@ export default function WorkPage() {
               <button
                 key={c}
                 onClick={() => setCat(c)}
+                aria-pressed={cat === c}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition ${cat === c ? 'bg-yellow-400 text-gray-900' : 'border border-gray-700 text-gray-300 hover:border-yellow-400/50 hover:text-white'}`}
               >
                 {c}
@@ -38,8 +39,8 @@ export default function WorkPage() {
           <AnimatePresence mode="popLayout">
             {list.map((p) => (
               <motion.a
-                key={p.title}
-                href="/contact"
+                key={p.slug}
+                href={`/work/${p.slug}`}
                 layout
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -48,13 +49,13 @@ export default function WorkPage() {
                 className="group block"
               >
                 <div className="relative mb-4 h-64 w-full overflow-hidden rounded-xl shadow-xl ring-1 ring-white/5 transition group-hover:ring-yellow-400/30">
-                  <Image src={p.image} alt={p.title} fill sizes="(max-width:640px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" unoptimized={p.image.startsWith('http')} />
+                  <Image src={p.image} alt="" fill sizes="(max-width:640px) 100vw, 50vw" className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   <span className="absolute left-4 top-4 rounded-full bg-gray-900/80 px-3 py-1 text-xs font-semibold text-yellow-400 backdrop-blur">{p.category}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold transition-colors group-hover:text-yellow-400">{p.title}</h3>
-                  <span className="font-mono text-xs text-gray-500">{p.year}</span>
+                  <span className="font-mono text-xs text-gray-400">{p.year}</span>
                 </div>
                 <p className="mt-1 text-sm text-gray-400">{p.desc}</p>
               </motion.a>

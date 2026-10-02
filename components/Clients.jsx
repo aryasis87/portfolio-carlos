@@ -1,10 +1,9 @@
-// components/Clients.jsx
+// components/Clients.jsx — dulunya logo merek; kini daftar proyek live (persona fiktif, tanpa klien sungguhan).
 'use client';
 
 import React, { useEffect } from 'react';
-import Image from 'next/image';
-
-const clients = ['ibm', 'ibmwatson', 'economist', 'longreads', 'bbcamerica', 'medium', 'apmg', 'tumblr'];
+import Link from 'next/link';
+import { projects } from '@/lib/data';
 
 export default function Clients() {
   useEffect(() => {
@@ -18,21 +17,21 @@ export default function Clients() {
   return (
     <section className="border-t border-gray-800 bg-gray-900 px-6 py-20 text-white md:px-12 md:py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" data-aos="fade-up">Clients.</h2>
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl" data-aos="fade-up">Live projects.</h2>
         <p className="mb-12 mt-3 max-w-xl leading-relaxed text-gray-400" data-aos="fade-up" data-aos-delay="100">
-          I&apos;ve had the pleasure of working with some amazing companies around the world.
+          No borrowed logos here — just six demo products you can open and use. Each name leads to its case study.
         </p>
 
-        <div className="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 md:grid-cols-4" data-aos="fade-up" data-aos-delay="200">
-          {clients.map((client, idx) => (
-            <div
-              key={idx}
-              className="relative h-10 w-32 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-            >
-              <Image src={`/images/${client}.png`} alt={client} fill className="object-contain invert" unoptimized />
-            </div>
+        <ul className="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3" data-aos="fade-up" data-aos-delay="200">
+          {projects.map((p) => (
+            <li key={p.slug}>
+              <Link href={`/work/${p.slug}`} className="block text-center text-lg font-bold tracking-tight text-gray-300 transition-colors hover:text-yellow-400 md:text-xl">
+                {p.title}
+                <span className="mt-1 block text-xs font-normal text-gray-400">{p.category}</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

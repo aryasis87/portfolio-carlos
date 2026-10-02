@@ -1,28 +1,33 @@
-import Link from 'next/link';
+import PageHeader from '@/components/PageHeader';
 
-export const metadata = { title: 'Privacy Policy', description: 'Privacy policy for Carlos Mendoza portfolio.' };
+export const metadata = {
+  title: 'Privacy',
+  description: 'What this portfolio template does and does not collect.',
+  alternates: { canonical: '/privacy' },
+};
 
 const sections = [
-  { h: 'Information We Collect', p: 'This site only collects the information you choose to share via the contact form, such as your name, email, and message.' },
-  { h: 'How We Use It', p: 'Your information is used solely to respond to your inquiries. It is never sold or shared with third parties.' },
-  { h: 'Cookies', p: 'Basic analytics cookies may be used to understand traffic. You can disable cookies in your browser settings.' },
-  { h: 'Your Rights', p: 'You may request access to or deletion of any personal data you have shared by contacting me directly.' },
+  { h: 'This is a template', p: 'Carlos Mendoza is a fictional persona and this site is a portfolio template. There is no business behind it collecting data.' },
+  { h: 'The contact form', p: 'The form on the contact page does not send or store anything. When you press send, it only shows a message saying so.' },
+  { h: 'Your theme choice', p: 'If you switch between light and dark mode, that choice is saved in your own browser (localStorage) so the next visit opens the same way. It never leaves your device.' },
+  { h: 'Cookies and tracking', p: 'This site sets no cookies and loads no analytics or advertising scripts.' },
+  { h: 'Hosting', p: 'The site is hosted on Vercel. Like any web host, Vercel may keep standard server logs such as IP addresses and request times; see Vercel’s own privacy policy for details.' },
 ];
 
 export default function PrivacyPage() {
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6 py-20 text-neutral-800">
-      <Link href="/" className="text-sm font-semibold text-yellow-600 hover:underline">← Back home</Link>
-      <h1 className="mt-6 text-4xl font-bold text-neutral-900">Privacy Policy</h1>
-      <p className="mt-3 text-neutral-500">Last updated: 6 July 2026</p>
-      <div className="mt-10 space-y-8">
-        {sections.map((s) => (
-          <section key={s.h}>
-            <h2 className="text-xl font-semibold text-neutral-900">{s.h}</h2>
-            <p className="mt-2 leading-relaxed text-neutral-600">{s.p}</p>
-          </section>
-        ))}
-      </div>
+    <main>
+      <PageHeader kicker="Privacy" title="Privacy." subtitle="Short version: nothing you type here is collected. Last updated 2 October 2026." />
+      <section className="px-6 py-14 md:px-12 md:py-20">
+        <div className="mx-auto max-w-3xl space-y-10">
+          {sections.map((s) => (
+            <div key={s.h}>
+              <h2 className="text-xl font-semibold text-white">{s.h}</h2>
+              <p className="mt-2 leading-relaxed text-gray-400">{s.p}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
